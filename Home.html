@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #727D73;
+  padding: 18px 32px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.navbar .brand {
+  color: #EEEFE0;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.navbar ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li a {
+  color: #EEEFE0;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar ul li a:hover, .navbar ul li a.active {
+  background: #AAB99A;
+  color: #F0F0D7;
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .navbar ul li a {
+    width: 100%;
+    text-align: left;
+  }
+  .navbar .brand {
+  color: #EEEFE0;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+}
+body{background-color: #FAF7F3 ;}
+
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="brand">MySite</div>
+  <ul>
+    <li><a href="Home.html" class="active">Home</a></li>
+    <li><a href="Destinations.html">Destination</a></li>
+    <li><a href="Wildlife.html">Wildlife</a></li>
+    <li><a href="CnC.html">Community & Culture</a></li>
+  </ul>
+</nav>
+</body>
+</html>
