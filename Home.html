@@ -77,19 +77,50 @@ body{background-color: #FAF7F3 ;}
 
 <div class="hero-image">
   <div class="hero-text">
-    <h1>hey twin 👅</h1>
+    <h1>Discover new places, more destinations await.</h1>
+    <div class="custom-button-card">
+      <div class="card-body">
+        <button class="action-button">Search for Reccomendations</button>
+       </div>
+    </div>
   </div>
 </div>
 
 <form class="example" action="/action_page.php" style="margin:auto;max-width:500px">
-  <input type="text" placeholder="SDIYBT..." name="search2">
-  <button type="submit"><i class="fa fa-search"></i></button>
+  <input type="text" placeholder="Search..." name="search2">
+
 </form>
 
+&nbsp;
+<div class="container">
+<div class="Card">
+  <div class="Info">
+    <img src="" alt="">
+    <h1>Kaeng Krachan National Park</h1>
+    <h4>Hua Hin</h4>
+  </div>
+</div>
+
+<div class="Card">
+  <div class="Info">
+    <img src="" alt="">
+    <h1>Khao Yai National Park</h1>
+    <h4>Nakhon Ratchasima</h4>
+  </div>
+</div>
+
+<div class="Card">
+  <div class="Info">
+    <img src="" alt="">
+    <h1>Erawan National Park</h1>
+    <h4>Kanchanaburi</h4>
+  </div>
+</div>
+</div>
 
 <div class="foot🤤">
   <footer>
-    <p style="text-align: center; color: #f1f1f1;"> All rights reserved.||</p>
+    <p style="text-align: center; color: #f1f1f1;">  ©NaturePreserve.co.th|All rights reserved.|</p>
     <a href="#">
   </footer>
   </div>
@@ -103,7 +134,7 @@ body, html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("1200px-Haew_Suwat_Waterfall_Khao-Yai02.jpg");
 
  
-  height:35%;
+  height:50%;
 
  
   background-position: center;
@@ -142,32 +173,59 @@ form.example input[type=text] {
   font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 80%;
+  width: 50%;
   background: #f1f1f1;
+  border-radius: 10px;
+  position: absolute;
+  top: 525px;
+  right: 25%;
+  margin-bottom: 20px;
 }
 
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
+.card-header {
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.action-button {
+  background-color: #313d32;
   color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-form.example button:hover {
-  background: #0b7dda;
+.action-button:hover {
+  background-color: #7aac82;
 }
 
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
+ .Card {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      padding: 20px;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(60, 47, 47, 0.1);
+      transition: transform 0.3s;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+.container {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px; 
 }
 
 </style>
 </body>
 </html>
+
+<!--note:use iframes-->
