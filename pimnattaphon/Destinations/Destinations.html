@@ -1,0 +1,506 @@
+<!DOCTYPE html> 
+
+<head> 
+
+<title>Destinations | Natural Discovery</title> 
+
+<style> 
+
+ 
+
+:root { 
+
+  --bg: #FAF7F3; 
+
+  --text: #1b1f1b; 
+
+  --nav-bg: #3B5249; 
+
+  --nav-text: #EEEFE0; 
+
+  --accent: #AAB99A; 
+
+  --surface: #fff; 
+
+  --muted: #6b7280; 
+
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+
+} 
+
+body.dark-mode { 
+
+  --bg: #1b1f1b; 
+
+  --text: #f1f1f1; 
+
+  --nav-bg: #1f2c24; 
+
+  --nav-text: #e0e0e0; 
+
+  --accent: #7aac82; 
+
+  --surface: #2a2a2a; 
+
+  --muted: #a0a0a0; 
+
+  --shadow: 0 8px 30px rgba(0,0,0,.25); 
+
+} 
+
+ 
+
+ 
+
+body { 
+
+  font-family: Arial, sans-serif; 
+
+  background: var(--bg); 
+
+  color: var(--text); 
+
+  margin: 0; 
+
+  line-height: 1.6; 
+
+} 
+
+* { box-sizing: border-box; } 
+
+ 
+
+ 
+
+.navbar { 
+
+  display: flex; 
+
+  justify-content: space-between; 
+
+  align-items: center; 
+
+  background: var(--nav-bg); 
+
+  padding: 16px 32px; 
+
+  box-shadow: var(--shadow); 
+
+  position: sticky;
+
+  top:0;
+
+} 
+
+.navbar .brand { 
+
+  color: var(--nav-text); 
+
+  font-size: 1.5em; 
+
+  font-weight: 700; 
+
+  letter-spacing: 2px; 
+
+} 
+
+.navbar ul { 
+
+  display: flex; gap: 20px; 
+
+  list-style: none; margin: 0; padding: 0; 
+
+} 
+
+.navbar ul li a { 
+
+  color: var(--nav-text); 
+
+  text-decoration: none; 
+
+  font-size: 1.1em; 
+
+  padding: 8px 14px; 
+
+  border-radius: 6px; 
+
+  transition: background .2s, color .2s; 
+
+} 
+
+.navbar ul li a:hover, 
+
+.navbar ul li a.active { 
+
+  background: var(--accent); 
+
+  color: var(--text); 
+
+} 
+
+.toggle-btn { 
+
+  background: var(--accent); 
+
+  border: none; 
+
+  padding: 8px 12px; 
+
+  border-radius: 6px; 
+
+  cursor: pointer; 
+
+  font-weight: 600; 
+
+  color: var(--text); 
+
+} 
+
+ 
+
+ 
+
+.hero { 
+
+  position: relative; text-align: center; 
+
+} 
+
+.hero__image { 
+
+  width: 100%; height: clamp(300px, 50vh, 500px); 
+  filter: brightness(50%);
+  object-fit: cover; 
+
+} 
+
+.hero__overlay { 
+
+  position: absolute; inset: 0; 
+
+  background: linear-gradient(180deg, rgba(0,0,0,.3), rgba(0,0,0,.6)); 
+
+} 
+
+.hero__content { 
+
+  position: absolute; inset: 0; 
+
+  display: flex; flex-direction: column; 
+
+  justify-content: center; align-items: center; 
+
+  color: #fff; padding: 0 16px; 
+
+} 
+
+.hero__content h1 { font-size: clamp(1.8rem, 4vw, 3rem); } 
+
+ 
+
+ 
+
+.grid { 
+
+  display: grid; 
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+
+  gap: 20px; 
+
+  max-width: 1120px; 
+
+  margin: 40px auto; 
+
+  padding: 0 16px; 
+
+} 
+
+.card { 
+
+  background: var(--surface); 
+
+  border-radius: 12px; 
+
+  overflow: hidden; 
+
+  box-shadow: var(--shadow); 
+
+  transition: transform .2s; 
+
+} 
+
+.card:hover { transform: translateY(-6px); } 
+
+.card__media { width: 100%; aspect-ratio: 16/10; object-fit: cover; } 
+
+.card__body { padding: 14px; } 
+
+.card__title { font-size: 1.1rem; margin-bottom: 6px; } 
+
+.card__meta { color: var(--muted); } 
+
+ 
+
+
+.map-section { 
+
+  max-width: 1120px; 
+
+  margin: 60px auto; 
+
+  padding: 0 16px; 
+
+} 
+
+.map-section h2 { margin-bottom: 16px; } 
+
+.map-frame { 
+
+  width: 100%; height: 500px; 
+
+  border: none; 
+
+  border-radius: 12px; 
+
+  box-shadow: var(--shadow); 
+
+} 
+
+ 
+
+.gallery-wrapper {
+  background-color: #b0bc9c;
+  box-sizing: border-box;
+  height: 325px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-scroll {
+  box-sizing: border-box;
+  height: 325px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.gallery {
+  background-color: #b0bc9c;
+  display: flex;
+  box-sizing: border-box;
+  width: max-content;
+  height: 320px;
+  padding: 0px 8px;
+}
+
+.item {
+  box-sizing: border-box;
+  height: 100%;
+margin: 10px;
+}
+
+.item img {
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+}
+
+footer { 
+
+  background: var(--nav-bg); 
+
+  color: var(--nav-text); 
+
+  margin-top: 40px; 
+
+} 
+
+.footer__inner { 
+
+  max-width: 1120px; 
+
+  margin: 0 auto; 
+
+  padding: 20px 16px; 
+
+  display: flex; justify-content: space-between; flex-wrap: wrap; 
+
+  font-size: .95rem; 
+
+} 
+
+</style> 
+
+</head> 
+
+<body> 
+
+ 
+
+  <nav class="navbar"> 
+
+    <div class="brand">Natural Discovery</div> 
+
+    <ul> 
+
+      <li><a href="file:///D:/pimnattaphon/Home/Home.html">Home</a></li> 
+
+      <li><a href="file:///D:/pimnattaphon/Destinations/Destinations.html" class="active">Destinations</a></li> 
+
+      <li><a href="file:///D:/pimnattaphon/Wildlife/Wildlife.html">Wildlife</a></li> 
+
+      <li><a href="file:///D:/pimnattaphon/CnC/CnC.html">Community</a></li> 
+
+    </ul> 
+
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button> 
+
+  </nav> 
+
+ 
+
+   
+
+  <section class="hero"> 
+
+    <img class="hero__image" src="hero.jpg" alt="National park scenery"> 
+
+    <div class="hero__overlay"></div> 
+
+    <div class="hero__content"> 
+
+      <h1>Explore Thailand’s National Parks</h1> 
+
+      <p>Mountains, waterfalls, wildlife, and cultural treasures await your discovery.</p> 
+
+    </div> 
+
+  </section> 
+
+ 
+
+ 
+
+  <div class="grid"> 
+
+    <article class="card"> 
+
+      <img class="card__media" src="khao.webp" alt="Khao Yai National Park"> 
+
+      <div class="card__body"> 
+
+        <h3 class="card__title">Khao Yai National Park</h3> 
+
+        <p class="card__meta">UNESCO • Waterfalls • Elephants</p> 
+
+      </div> 
+
+    </article> 
+
+    <article class="card"> 
+
+      <img class="card__media" src="kaeng.jpg" alt="Doi Inthanon National Park"> 
+
+      <div class="card__body"> 
+
+        <h3 class="card__title">Doi Inthanon</h3> 
+
+        <p class="card__meta">Northern Thailand • Highest Peak • Birdwatching</p> 
+
+      </div> 
+
+    </article> 
+
+    <article class="card"> 
+
+      <img class="card__media" src="krabi.jpg" alt="Erawan Waterfalls"> 
+
+      <div class="card__body"> 
+
+        <h3 class="card__title">Erawan National Park</h3> 
+
+        <p class="card__meta">Western Thailand • Waterfalls • Limestone Caves</p> 
+
+      </div> 
+
+    </article> 
+
+  </div> 
+
+ 
+
+  
+
+  <section class="map-section"> 
+
+    <h2>Interactive Map of National Parks</h2> 
+
+    <iframe  
+
+      class="map-frame" 
+
+      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Doi%20inthanon%20national%20park+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+
+      allowfullscreen="" 
+
+      loading="lazy"> 
+
+    </iframe> 
+
+    <h1 style="text-align: center; font-size: 50px;">Photo Gallery</h1> 
+
+  </section> 
+
+ <div class="gallery-wrapper">
+  <div class="gallery-scroll">
+    <div class="gallery">
+      <div class="item">
+        <img src="TAL-kui-buri-national-park-THAINPDOTY25-ded8e72807144415b3a37842258d0934.jpg" alt="Image" />
+      </div>
+      <div class="item">
+        <img src="ele.jpg" alt="Image" />
+      </div>
+      <div class="item">
+        <img src="khao-sok-lake.webp" alt="Image" />
+      </div>
+      <div class="item">
+        <img src="20180105298cf40056b53ca4f8c1903043d79bef134709.webp" alt="Image" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer> 
+
+    <div class="footer__inner"> 
+
+      <p>© <span id="year"></span> NaturePreserve.co.th — All rights reserved.</p> 
+
+      <nav> 
+
+        <a href="#">Privacy</a> | <a href="#">Contact</a> 
+
+      </nav> 
+
+    </div> 
+
+  </footer> 
+
+ 
+
+<script> 
+
+  document.getElementById('year').textContent = new Date().getFullYear(); 
+
+  function toggleDarkMode() { 
+
+    document.body.classList.toggle('dark-mode'); 
+
+  } 
+
+</script> 
+
+</body> 
+
+</html> 

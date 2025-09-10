@@ -1,0 +1,545 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+  <meta charset="utf-8" /> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+
+  <title>Natural Discovery — Explore Thailand's National Parks</title> 
+
+  <meta name="description" content="Discover Thailand's best national parks, wildlife, and culture. Search destinations, filter by interests, and plan your next escape." /> 
+
+  <!-- Open Graph --> 
+
+  <meta property="og:title" content="Natural Discovery — Explore Thailand's National Parks" /> 
+
+  <meta property="og:description" content="Search destinations, discover wildlife, and explore local culture." /> 
+
+  <meta property="og:type" content="website" /> 
+
+  <meta property="og:url" content="https://example.com/" /> 
+
+  <meta property="og:image" content="https://example.com/og-cover.jpg" /> 
+
+  <!-- Theme Color for mobile address bar --> 
+
+  <meta name="theme-color" content="#727D73" /> 
+
+  <!-- Structured data: organization + site search --> 
+
+  <script type="application/ld+json"> 
+
+  { 
+
+    "@context": "https://schema.org", 
+
+    "@type": "Organization", 
+
+    "name": "Natural Discovery", 
+
+    "url": "https://example.com/", 
+
+    "logo": "https://example.com/logo.png" 
+
+  } 
+
+  </script> 
+
+  <script type="application/ld+json"> 
+
+  { 
+
+    "@context": "https://schema.org", 
+
+    "@type": "WebSite", 
+
+    "url": "https://example.com/", 
+
+    "potentialAction": { 
+
+      "@type": "SearchAction", 
+
+      "target": "https://example.com/search?q={query}", 
+
+      "query-input": "required name=query" 
+
+    } 
+
+  } 
+
+  </script> 
+
+  <!-- Fonts --> 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" /> 
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> 
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" /> 
+
+ 
+
+  <style> 
+
+    :root { 
+
+      --brand-600: #727D73; /* primary */ 
+
+      --brand-500: #8a9785; 
+
+      --brand-300: #AAB99A; /* secondary */ 
+
+      --brand-200: #C7D3BF; 
+
+      --ink: #1f2937;      /* gray-800 */ 
+
+      --muted: #6b7280;    /* gray-500 */ 
+
+      --paper: #EEEFE0; 
+
+      --surface: #ffffff; 
+
+      --success: #16a34a; 
+
+      --shadow: 0 8px 30px rgba(0,0,0,.08); 
+
+      --radius: 14px; 
+
+      --maxw: 1120px; 
+
+    } 
+
+ 
+
+    * { box-sizing: border-box; } 
+
+    html, body { height: 100%; } 
+
+    body { 
+
+      margin: 0; 
+
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+
+      color: var(--ink); 
+
+      background: var(--paper); 
+
+      line-height: 1.5; 
+
+      -webkit-font-smoothing: antialiased; 
+
+      text-rendering: optimizeLegibility; 
+
+    } 
+
+ 
+
+    /* Skip link */ 
+
+    .skip-link { 
+
+      position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; 
+
+    } 
+
+    .skip-link:focus { left: 16px; top: 8px; width: auto; height: auto; padding: .5rem .75rem; background: var(--brand-600); color: #fff; border-radius: 8px; z-index: 1001; } 
+
+ 
+
+    /* Header / Nav */ 
+
+    header { 
+
+      position: sticky; top: 0; z-index: 1000; 
+
+      background: var(--brand-600); 
+
+      box-shadow: 0 2px 10px rgba(0,0,0,.12); 
+
+    } 
+
+    .nav { 
+
+      max-width: var(--maxw); 
+
+      margin: 0 auto; 
+
+      display: flex; align-items: center; justify-content: space-between; 
+
+      padding: 14px 20px; 
+
+      color: #fff; 
+
+    } 
+
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .5px; } 
+
+    .brand__logo { width: 36px; height: 36px; border-radius: 10px; background: var(--brand-300); display: inline-block; box-shadow: inset 0 0 0 2px rgba(255,255,255,.6); } 
+
+    .brand__name { color: #fff; font-size: 1.125rem; } 
+
+ 
+
+    .nav__menu { list-style: none; display: flex; gap: 14px; margin: 0; padding: 0; } 
+
+    .nav__link { color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 10px; font-weight: 600; } 
+
+    .nav__link[aria-current="page"], .nav__link:hover { background: var(--brand-300); color: #1c231c; transition: background .2s ease; } 
+
+ 
+
+    /* Hero */ 
+
+    .hero { 
+
+      position: relative; isolation: isolate; 
+
+      background: #1b1f1b; 
+
+    } 
+
+    .hero__media { position: relative; } 
+
+    .hero__image { 
+
+      width: 100%; height: clamp(320px, 56vh, 600px); 
+
+      object-fit: cover; object-position: center; 
+
+      display: block; filter: saturate(1.05); 
+
+    } 
+
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)); } 
+
+    .hero__content { 
+
+      position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 0 16px; 
+
+      color: #fff; 
+
+    } 
+
+    .hero h1 { font-size: clamp(1.6rem, 3.6vw, 3rem); margin: 0 0 12px; } 
+
+    .hero p { margin: 0 0 20px; color: #e5e7eb; } 
+
+ 
+
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; } 
+
+    .button { appearance: none; border: 0; padding: 12px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow); } 
+
+    .button--primary { background: var(--brand-300); color: #1c231c; } 
+
+    .button--ghost { background: rgba(255,255,255,.12); color: #fff; backdrop-filter: blur(2px); } 
+
+ 
+
+    /* Search */ 
+
+    .searchbar { 
+
+      max-width: var(--maxw); 
+
+      margin: -28px auto 24px; /* pull up into hero */ 
+
+      padding: 0 16px; 
+
+    } 
+
+    .searchbar__form { display: grid; grid-template-columns: 1fr auto; gap: 10px; background: var(--surface); padding: 10px; border-radius: 14px; box-shadow: var(--shadow); } 
+
+    .searchbar__input { width: 100%; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; font-size: 1rem; } 
+
+    .searchbar__submit { padding: 12px 16px; border-radius: 10px; border: 0; background: var(--brand-600); color: #fff; font-weight: 700; cursor: pointer; } 
+
+ 
+
+    /* Layout */ 
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; } 
+
+ 
+
+    /* Cards grid */ 
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } 
+
+    @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } } 
+
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } } 
+
+ 
+
+    .card { background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: grid; grid-template-rows: auto 1fr; } 
+
+    .card__media { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; } 
+
+    .card__body { padding: 14px; } 
+
+    .card__title { margin: 0 0 4px; font-size: 1.05rem; } 
+
+    .card__meta { margin: 0; color: var(--muted); font-size: .95rem; } 
+
+ 
+
+    /* Footer */ 
+
+    footer { background: #445247; color: #f1f1f1; margin-top: 40px; } 
+
+    .footer__inner { max-width: var(--maxw); margin: 0 auto; padding: 26px 16px; display: grid; gap: 10px; align-items: center; grid-template-columns: 1fr auto; } 
+
+    .footer__small { margin: 0; font-size: .95rem; } 
+
+ 
+
+    /* Accessibility: respect reduced motion */ 
+
+    @media (prefers-reduced-motion: reduce) { 
+
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } 
+
+    } 
+
+  </style> 
+
+</head> 
+
+<body> 
+
+  <a class="skip-link" href="#main">Skip to content</a> 
+
+  <header> 
+
+    <nav class="nav" aria-label="Primary"> 
+
+      <a class="brand" href="/" aria-label="Natural Discovery home"> 
+
+        <span class="brand__logo" aria-hidden="true"></span> 
+
+        <span class="brand__name">Natural Discovery</span> 
+
+      </a> 
+
+      <ul class="nav__menu" role="list"> 
+
+        <li><a class="nav__link" href="#" aria-current="page">Home</a></li> 
+
+        <li><a class="nav__link" href="#destinations">Destinations</a></li> 
+
+        <li><a class="nav__link" href="#wildlife">Wildlife</a></li> 
+
+        <li><a class="nav__link" href="#culture">Community &amp; Culture</a></li> 
+
+      </ul> 
+
+    </nav> 
+
+  </header> 
+
+ 
+
+  <section class="hero" aria-label="Scenic waterfall"> 
+
+    <div class="hero__media"> 
+
+      <img class="hero__image" src="1200px-Haew_Suwat_Waterfall_Khao-Yai02.jpg" alt="Haew Suwat waterfall in Khao Yai" loading="eager" fetchpriority="high" /> 
+
+      <div class="hero__overlay" aria-hidden="true"></div> 
+
+    </div> 
+
+    <div class="hero__content"> 
+
+      <div> 
+
+        <h1>Discover new places — more destinations await.</h1> 
+
+        <p>Hand‑picked national parks, wildlife encounters, and cultural experiences across Thailand.</p> 
+
+        <div class="actions"> 
+
+          <a class="button button--primary" href="#destinations">Explore Destinations</a> 
+
+          <a class="button button--ghost" href="#search">Search recommendations</a> 
+
+        </div> 
+
+      </div> 
+
+    </div> 
+
+  </section> 
+
+ 
+
+  <!-- Search --> 
+
+  <section id="search" class="searchbar" aria-label="Search destinations"> 
+
+    <form class="searchbar__form" role="search" onsubmit="return false;"> 
+
+      <label class="sr-only" for="q">Search destinations</label> 
+
+      <input class="searchbar__input" id="q" name="q" type="search" placeholder="Search destinations (e.g., Khao Yai)" list="suggestions" autocomplete="off" /> 
+
+      <datalist id="suggestions"> 
+
+        <option value="Kaeng Krachan National Park"></option> 
+
+        <option value="Khao Yai National Park"></option> 
+
+        <option value="Erawan National Park"></option> 
+
+      </datalist> 
+
+      <button class="searchbar__submit" type="button" onclick="applySearch()">Search</button> 
+
+    </form> 
+
+  </section> 
+
+ 
+
+  <main id="main" class="container" tabindex="-1"> 
+
+    <section id="destinations" aria-labelledby="destinations-title"> 
+
+      <h2 id="destinations-title">Top Destinations</h2> 
+
+      <div class="grid" id="cards"> 
+
+        <article class="card" data-tags="hua hin kaeng krachan national park birding rainforest"> 
+
+          <img class="card__media" src="kaeng-krachan.jpg" alt="Misty forest at Kaeng Krachan National Park" loading="lazy" /> 
+
+          <div class="card__body"> 
+
+            <h3 class="card__title">Kaeng Krachan National Park</h3> 
+
+            <p class="card__meta">Hua Hin • Birding • Rainforest</p> 
+
+          </div> 
+
+        </article> 
+
+        <article class="card" data-tags="nakhon ratchasima khao yai waterfalls hiking wildlife"> 
+
+          <img class="card__media" src="khao-yai.jpg" alt="Cliff and waterfall view at Khao Yai National Park" loading="lazy" /> 
+
+          <div class="card__body"> 
+
+            <h3 class="card__title">Khao Yai National Park</h3> 
+
+            <p class="card__meta">Nakhon Ratchasima • Hiking • Waterfalls</p> 
+
+          </div> 
+
+        </article> 
+
+        <article class="card" data-tags="kanchanaburi erawan emerald pools waterfalls family friendly"> 
+
+          <img class="card__media" src="erawan.jpg" alt="Emerald pools at Erawan National Park" loading="lazy" /> 
+
+          <div class="card__body"> 
+
+            <h3 class="card__title">Erawan National Park</h3> 
+
+            <p class="card__meta">Kanchanaburi • Emerald Pools • Family‑friendly</p> 
+
+          </div> 
+
+        </article> 
+
+      </div> 
+
+    </section> 
+
+ 
+
+    <section id="wildlife" aria-labelledby="wildlife-title" class="container" style="margin-top:32px"> 
+
+      <h2 id="wildlife-title">Wildlife & Conservation</h2> 
+
+      <p style="max-width:70ch">Spot gibbons, hornbills, and elephant herds responsibly. Learn how parks protect biodiversity and how you can minimize your footprint while visiting.</p> 
+
+    </section> 
+
+ 
+
+    <section id="culture" aria-labelledby="culture-title" class="container" style="margin-top:32px"> 
+
+      <h2 id="culture-title">Community & Culture</h2> 
+
+      <p style="max-width:70ch">Support local communities through eco‑stays, markets, and cultural workshops that preserve traditions while benefiting residents.</p> 
+
+    </section> 
+
+  </main> 
+
+ 
+
+  <footer role="contentinfo"> 
+
+    <div class="footer__inner"> 
+
+      <p class="footer__small">© <span id="year"></span> NaturePreserve.co.th — All rights reserved.</p> 
+
+      <nav aria-label="Footer"> 
+
+        <a class="nav__link" href="#">Privacy</a> 
+
+        <a class="nav__link" href="#">Contact</a> 
+
+      </nav> 
+
+    </div> 
+
+  </footer> 
+
+ 
+
+  <script> 
+
+    // Update year in footer 
+
+    document.getElementById('year').textContent = new Date().getFullYear(); 
+
+ 
+
+    // Basic client-side filtering for the cards grid 
+
+    function applySearch() { 
+
+      const q = document.getElementById('q').value.trim().toLowerCase(); 
+
+      const cards = document.querySelectorAll('#cards .card'); 
+
+      cards.forEach(card => { 
+
+        const text = (card.textContent + ' ' + (card.getAttribute('data-tags') || '')).toLowerCase(); 
+
+        const match = !q || text.includes(q); 
+
+        card.style.display = match ? '' : 'none'; 
+
+      }); 
+
+    } 
+
+ 
+
+    // Live filter as user types 
+
+    document.getElementById('q').addEventListener('input', applySearch); 
+
+  </script> 
+
+</body> 
+
+</html> 

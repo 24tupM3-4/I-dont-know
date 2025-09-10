@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  h1 {color:#727D73}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #727D73;
+  padding: 18px 32px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.navbar .brand {
+  color: #EEEFE0;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.navbar ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li a {
+  color: #EEEFE0;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar ul li a:hover, .navbar ul li a.active {
+  background: #AAB99A;
+  color: #F0F0D7;
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .navbar ul li a {
+    width: 100%;
+    text-align: left;
+  }
+  .navbar .brand {
+  color: #EEEFE0;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+}
+body{background-color: #FAF7F3 ;}
+
+    #main-heading {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .card-container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr); /* 2 columns */
+  gap: 20px;
+  padding: 40px;
+  max-width: 800px; /* optional: control overall width */
+  margin: 0 auto;
+}
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+</style>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="brand">Natural Discovery</div>
+  <ul>
+    <li><a href="file:///D:/pimnattaphon/Home/Home.html">Home</a></li>
+    <li><a href="file:///D:/pimnattaphon/Destinations/Destinations.html">Destination</a></li>
+    <li><a href="file:///D:/pimnattaphon/Wildlife/Wildlife.html" class="active">Wildlife</a></li>
+    <li><a href="file:///D:/pimnattaphon/CnC/CnC.html">Community & Culture</a></li>
+  </ul>  
+</nav>
+
+
+  <h1 id="main-heading">My Cards Section</h1>
+
+  <div class="card-container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+    <div class="card">Card 5</div>
+    <div class="card">Card 6</div>
+  </div>
+
+</body>

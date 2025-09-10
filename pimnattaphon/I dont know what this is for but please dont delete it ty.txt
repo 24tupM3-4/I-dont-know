@@ -1,0 +1,3 @@
+group:3
+
+given score:27
